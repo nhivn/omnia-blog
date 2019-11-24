@@ -28,9 +28,10 @@ const Bio = () => {
           alt={author}
           css={css({
             mr: 2,
-            mb: 0,
-            width: 48,
-            minWidth: 48,
+            mt: "auto",
+            mb: "auto",
+            minHeight: 60,
+            minWidth: 60,
             borderRadius: 99999
           })}
         />

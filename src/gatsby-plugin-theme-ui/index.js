@@ -13,7 +13,13 @@ export default merge(typography, {
   styles,
   prism,
   fonts: {
-    monospace:
-      "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace"
+    monospace: "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace",
+    body: "IBM Plex Sans, system-ui, sans-serif",
+  },
+  fontWeights: {
+    body: 300
+  },
+  lineHeights: {
+    body: 1.6,
   }
 });
