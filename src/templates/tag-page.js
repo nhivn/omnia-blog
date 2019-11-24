@@ -6,8 +6,9 @@ import { formatReadingTime } from "../utils/helpers";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Footer from "../components/home-footer";
+import PostTag from "../components/post-tag";
 
-const Posts = props => {
+const TagPage = props => {
   const { location, data } = props;
   const posts = data.allMarkdownRemark.edges;
   const totalCount = data.allMarkdownRemark.totalCount;
@@ -18,7 +19,7 @@ const Posts = props => {
     <Layout location={location} title={siteTitle}>
       <main>
         <Styled.h3>
-          Showing {totalCount} post{totalCount > 1 ? "s" : ""} with tag{" "}
+          Showing {totalCount} post{totalCount > 1 ? "s" : ""} with{" "}
           <Badge
             css={css({
               bg: "secondary",
@@ -60,26 +61,16 @@ const Posts = props => {
                   </Styled.strong>
                 </small>
 
-                <Styled.p>
-                  {node.frontmatter.excerpt}
-                  <Styled.div>
-                    {node.frontmatter.tags
-                      ? node.frontmatter.tags.map(tag => (
-                          <Badge
-                            css={css({
-                              color: "primary",
-                              bg: "background"
-                            })}
-                          >
-                            #
-                            <Styled.a as={Link} to={`/tags/${tag}`}>
-                              {tag}
-                            </Styled.a>
-                          </Badge>
-                        ))
-                      : null}
-                  </Styled.div>
-                </Styled.p>
+                <Styled.div css={css({ mb: 4 })}>
+                  <Styled.p css={css({ mb: 0 })}>
+                    {node.frontmatter.excerpt}
+                  </Styled.p>
+                  {node.frontmatter.tags
+                    ? node.frontmatter.tags.map(tag => (
+                        <PostTag key={tag} tag={tag} />
+                      ))
+                    : null}
+                </Styled.div>
               </div>
             </Fragment>
           );
@@ -90,7 +81,7 @@ const Posts = props => {
   );
 };
 
-export default Posts;
+export default TagPage;
 
 export const query = graphql`
   query GetAllPostsWithTags($tag: String) {

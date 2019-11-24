@@ -4,7 +4,7 @@ excerpt: "The true bubble sort and the new bubble sort. Or simply, the original 
 date: 2019-11-24 15:00:00
 tags: [knowledge, functional-programming]
 categories: [dev]
-published: true
+published: false
 ---
 
 ```javascript

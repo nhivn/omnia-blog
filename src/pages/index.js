@@ -66,7 +66,7 @@ const Posts = props => {
 export default Posts;
 
 export const query = graphql`
-  query {
+  query GetAllPublishedPosts {
     site {
       siteMetadata {
         title

@@ -27,7 +27,15 @@ const Tags = props => {
             listStyleType: "none"
           })}
         >
-          {uniqueTags.map(tag => <PostTag key={tag} tag={tag} />)}
+          {uniqueTags.map(tag => (
+            <li key={tag}>
+              <PostTag
+                key={tag}
+                tag={tag}
+                color="secondary"
+              />
+            </li>
+          ))}
         </ul>
       </main>
       <Footer socialLinks={socialLinks} />
