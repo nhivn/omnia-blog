@@ -1,5 +1,5 @@
 import { swiss, deep } from "@theme-ui/presets";
-import { darken, lighten, shade } from "polished";
+import { lighten, shade } from "polished";
 
 export default {
   ...swiss.colors,

@@ -1,19 +1,11 @@
 {
-  "name": "gatsby-theme-blog",
+  "name": "omnia-blog",
   "version": "1.1.17",
-  "description": "A Gatsby theme for miscellaneous blogging with a dark/light mode",
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "gatsby-plugin",
-    "react",
-    "blog"
-  ],
+  "description": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nhivn/omnia-blo.git",
-    "directory": "packages/gatsby-theme-blog"
+    "url": "https://github.com/nhivn/omnia-blo.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -23,7 +15,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-theme-blog#readme",
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@mdx-js/react": "^1.5.1",
@@ -50,20 +41,12 @@
     "theme-ui": "^0.2.46",
     "typeface-quattrocento-sans": "^0.0.72",
     "typeface-work-sans": "^0.0.72",
-    "typography-theme-anonymous": "^0.15.10",
-    "typography-theme-fairy-gates": "^0.16.19",
-    "typography-theme-github": "^0.16.19"
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
     "gatsby": "^2.17.11",
     "prettier": "^1.19.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
-  },
-  "peerDependencies": {
-    "gatsby": "^2.13.13",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
-  "gitHead": "0efca77d3fb8416f9f2c42abe9eb23ebfece950a"
+  }
 }
