@@ -29,11 +29,7 @@ const Tags = props => {
         >
           {uniqueTags.map(tag => (
             <li key={tag}>
-              <PostTag
-                key={tag}
-                tag={tag}
-                color="secondary"
-              />
+              <PostTag key={tag} tag={tag} color="secondary" />
             </li>
           ))}
         </ul>
@@ -56,7 +52,10 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { published: { eq: true } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           frontmatter {

@@ -18,15 +18,16 @@ const TagPage = props => {
   return (
     <Layout location={location} title={siteTitle}>
       <main>
-        <Styled.h3>
+        <Styled.h3 css={css({ lineHeight: 1.6 })}>
           Showing {totalCount} post{totalCount > 1 ? "s" : ""} with{" "}
           <Badge
             css={css({
               bg: "secondary",
               color: "background",
-              padding: 10,
+              padding: "8px 10px",
               borderRadius: 9999,
-              fontSize: 3
+              fontSize: 3,
+              lineHeight: 1.1
             })}
           >
             #{props.pageContext.tag}
@@ -96,7 +97,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
     ) {
       totalCount
       edges {
