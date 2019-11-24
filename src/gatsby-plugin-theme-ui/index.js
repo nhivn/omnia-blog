@@ -15,9 +15,10 @@ export default merge(typography, {
   fonts: {
     monospace: "Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace",
     body: "IBM Plex Sans, system-ui, sans-serif",
+    heading: "IBM Plex Sans, system-ui, sans-serif"
   },
   fontWeights: {
-    body: 300
+    body: 300,
   },
   lineHeights: {
     body: 1.6,

@@ -4,7 +4,7 @@ excerpt: "A 'hello world' post for my blog where I list out what I do, what I re
 date: 2019-05-30 0:14:00
 categories: [README]
 tags: [readme]
-comments: true
+published: true
 ---
 
 Hello world!

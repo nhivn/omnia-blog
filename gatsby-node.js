@@ -4,12 +4,13 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve("./src/components/post.js");
+  const blogPost = path.resolve("./src/templates/blog-post.js");
   const result = await graphql(
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { frontmatter: { published: { eq: true } } }
+          sort: { fields: frontmatter___date, order: DESC }
           limit: 1000
         ) {
           edges {
@@ -18,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                title
+                tags
               }
             }
           }
@@ -31,26 +32,38 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  const blogPosts = path.resolve("./src/components/posts.js");
-  createPage({
-    path: "/",
-    component: blogPosts
-  });
-
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges;
-
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+    const previousSlug =
+      index === posts.length - 1 ? null : posts[index + 1].node.fields.slug;
+    const nextSlug = index === 0 ? null : posts[index - 1].node.fields.slug;
 
     createPage({
       path: post.node.fields.slug,
       component: blogPost,
       context: {
         slug: post.node.fields.slug,
-        previous,
-        next
+        previousSlug,
+        nextSlug
+      }
+    });
+  });
+
+  const tagsPage = path.resolve("./src/templates/tag-page.js");
+  const uniqueTags = Array.from(
+    new Set(
+      posts
+        .map(p => p.node.frontmatter.tags)
+        .reduce((acc, tag) => acc.concat(tag))
+    )
+  );
+  uniqueTags.forEach(tag => {
+    createPage({
+      path: "/tags/" + tag,
+      component: tagsPage,
+      context: {
+        tag
       }
     });
   });

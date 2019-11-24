@@ -14,7 +14,9 @@ const Title = ({ children, location }) => {
       <Styled.h1
         css={css({
           my: 0,
-          fontSize: 5
+          fontSize: 5,
+          fontFamily: "Paytone One, system-ui, sans-serif",
+          fontWeight: 100
         })}
       >
         <Styled.a
@@ -35,7 +37,9 @@ const Title = ({ children, location }) => {
     <Styled.h3
       as="p"
       css={css({
-        my: 0
+        my: 0,
+        fontFamily: "Paytone One, system-ui, sans-serif",
+        fontWeight: 100
       })}
     >
       <Styled.a

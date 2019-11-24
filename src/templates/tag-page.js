@@ -3,19 +3,34 @@ import { Link, graphql } from "gatsby";
 import { Styled, css } from "theme-ui";
 import { Badge } from "@theme-ui/components";
 import { formatReadingTime } from "../utils/helpers";
-import Layout from "./layout";
-import SEO from "./seo";
-import Footer from "./home-footer";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Footer from "../components/home-footer";
 
 const Posts = props => {
   const { location, data } = props;
   const posts = data.allMarkdownRemark.edges;
+  const totalCount = data.allMarkdownRemark.totalCount;
   const siteTitle = data.site.siteMetadata.title;
   const socialLinks = data.site.siteMetadata.social;
 
   return (
     <Layout location={location} title={siteTitle}>
       <main>
+        <Styled.h3>
+          Showing {totalCount} post{totalCount > 1 ? "s" : ""} with tag{" "}
+          <Badge
+            css={css({
+              bg: "secondary",
+              color: "background",
+              padding: 10,
+              borderRadius: 9999,
+              fontSize: 3
+            })}
+          >
+            #{props.pageContext.tag}
+          </Badge>
+        </Styled.h3>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           const keywords = node.keywords || [];
@@ -56,7 +71,10 @@ const Posts = props => {
                               bg: "background"
                             })}
                           >
-                            #<Styled.a href="#">{tag}</Styled.a>
+                            #
+                            <Styled.a as={Link} to={`/tags/${tag}`}>
+                              {tag}
+                            </Styled.a>
                           </Badge>
                         ))
                       : null}
@@ -74,8 +92,8 @@ const Posts = props => {
 
 export default Posts;
 
-export const pageQuery = graphql`
-  query {
+export const query = graphql`
+  query GetAllPostsWithTags($tag: String) {
     site {
       siteMetadata {
         title
@@ -85,7 +103,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
       edges {
         node {
           fields {

@@ -1,5 +1,4 @@
-import nightOwl from "@theme-ui/prism/presets/night-owl.json";
-import { deep } from "@theme-ui/presets";
+import dracula from "@theme-ui/prism/presets/dracula.json";
 
 export default {
   root: {
@@ -16,7 +15,7 @@ export default {
     overflow: "auto",
     borderRadius: 10,
     p: 3,
-    ...nightOwl
+    ...dracula
   },
   code: {
     fontFamily: "monospace",
@@ -51,12 +50,27 @@ export default {
   },
   blockquote: {
     color: "inherit",
-    bg: "primary",
-    borderLeftColor: "secondary",
-    borderLeft: "1px solid secondary",
+    borderLeft: "5px solid",
+    borderColor: "primary",
+    borderRadius: 4,
+    paddingLeft: 20,
+    fontWeight: 200,
+    fontSize: "1.2em",
+    "font-style": "italic",
     opacity: 0.8,
     "&.translation": {
       fontSize: "1em"
     }
-  }
+  },
+  badges: {
+    primary: {
+      color: 'background',
+      bg: 'primary',
+    },
+    outline: {
+      color: 'primary',
+      bg: 'transparent',
+      boxShadow: 'inset 0 0 0 1px',
+    },
+  },
 };

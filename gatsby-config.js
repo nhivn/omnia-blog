@@ -12,6 +12,14 @@ module.exports = {
       {
         name: "GitHub",
         url: "https://github.com/nhivn"
+      },
+      {
+        name: "gitlab",
+        url: "https://gitlab.com/nhivn"
+      },
+      {
+        name: "linkedin",
+        url: "https://linkedin.com/in/nhivn"
       }
     ]
   },

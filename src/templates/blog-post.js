@@ -2,15 +2,18 @@ import React from "react";
 import { Styled, css } from "theme-ui";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { graphql } from "gatsby";
-import PostFooter from "./post-footer";
-import Layout from "./layout";
-import SEO from "./seo";
+import PostFooter from "../components/post-footer";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 import { formatReadingTime } from "../utils/helpers";
+import PostTag from "../components/post-tag";
 
 const Post = props => {
   const {
     data: {
       blogPost,
+      previous,
+      next,
       markdownRemark: {
         fields: {
           readingTime: { minutes }
@@ -20,9 +23,7 @@ const Post = props => {
         siteMetadata: { title }
       }
     },
-    location,
-    previous,
-    next
+    location
   } = props;
   const post = blogPost;
 
@@ -45,6 +46,12 @@ const Post = props => {
           </small>
         </Styled.p>
         <MDXRenderer>{post.body}</MDXRenderer>
+        <Styled.em>
+        	Tagged with:
+        </Styled.em>{" "}
+        {post.tags
+          ? post.tags.map(tag => <PostTag key={tag} tag={tag} />)
+          : null}
       </main>
       <PostFooter {...{ previous, next }} />
     </Layout>
@@ -53,8 +60,8 @@ const Post = props => {
 
 export default Post;
 
-export const pageQuery = graphql`
-  query PostBySlug($slug: String!) {
+export const query = graphql`
+  query GetPost($slug: String!, $previousSlug: String, $nextSlug: String) {
     site {
       siteMetadata {
         title
@@ -68,14 +75,19 @@ export const pageQuery = graphql`
       }
     }
     blogPost(slug: { eq: $slug }) {
-      id
       excerpt
       body
+      title
+      date(formatString: "MMMM DD, YYYY")
+      tags
+    }
+    previous: blogPost(slug: { eq: $previousSlug }) {
       slug
       title
-      tags
-      keywords
-      date(formatString: "MMMM DD, YYYY")
+    }
+    next: blogPost(slug: { eq: $nextSlug }) {
+      slug
+      title
     }
   }
 `;
