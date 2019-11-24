@@ -2,7 +2,6 @@
   "name": "gatsby-theme-blog",
   "version": "1.1.17",
   "description": "A Gatsby theme for miscellaneous blogging with a dark/light mode",
-  "main": "index.js",
   "keywords": [
     "gatsby",
     "gatsby-theme",
@@ -13,13 +12,22 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby.git",
+    "url": "https://github.com/nhivn/omnia-blo.git",
     "directory": "packages/gatsby-theme-blog"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-theme-blog#readme",
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@mdx-js/react": "^1.5.1",
+    "@theme-ui/components": "^0.2.49",
     "@theme-ui/presets": "^0.2.44",
     "@theme-ui/prism": "^0.2.46",
     "@theme-ui/typography": "^0.2.46",
@@ -27,22 +35,24 @@
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-emotion": "^4.1.14",
     "gatsby-plugin-feed": "^2.3.20",
+    "gatsby-plugin-manifest": "^2.2.29",
     "gatsby-plugin-react-helmet": "^3.1.14",
     "gatsby-plugin-theme-ui": "^0.2.43",
     "gatsby-plugin-twitter": "^2.1.13",
+    "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-source-filesystem": "^2.1.38",
     "gatsby-theme-blog-core": "^1.0.17",
+    "gatsby-transformer-remark": "^2.6.37",
     "mdx-utils": "0.2.0",
+    "polished": "^3.4.2",
     "react-helmet": "^5.2.1",
     "react-switch": "^5.0.1",
     "theme-ui": "^0.2.46",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75",
     "typeface-quattrocento-sans": "^0.0.72",
     "typeface-work-sans": "^0.0.72",
     "typography-theme-anonymous": "^0.15.10",
     "typography-theme-fairy-gates": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "gatsby": "^2.17.11",

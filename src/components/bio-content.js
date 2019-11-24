@@ -1,16 +1,16 @@
-import React, { Fragment } from "react"
-import { Styled } from "theme-ui"
+import React from "react";
+import { Styled } from "theme-ui";
 
 /**
  * Shadow me to add your own bio content
  */
 
-const BioContent = ({author}) => (
-  <Fragment>
-    Words by <Styled.a href="http://example.com/">{author}</Styled.a>.
+const BioContent = ({ author }) => (
+  <>
+    <Styled.a href="https://nhivn.dev/">{author}</Styled.a>'s personal blog.
     <br />
-    Change me. This is all quite default.
-  </Fragment>
-)
+    Power by bubble tea and coffee.
+  </>
+);
 
-export default BioContent
+export default BioContent;

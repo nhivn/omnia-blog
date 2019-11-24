@@ -1,8 +1,9 @@
 ---
-title:  "Hello World!"
+title: "Hello World!"
 excerpt: "A 'hello world' post for my blog where I list out what I do, what I read (and highly recommend you to read, too), and what I have in plan!"
-date:   2019-05-30 0:14:00
+date: 2019-05-30 0:14:00
 categories: [README]
+tags: [readme]
 comments: true
 ---
 
@@ -50,4 +51,4 @@ I won't list out classics because they have enough exposure from other people's 
 
 ✔️ **Sapiens** by Yuval Noah Harari
 
-✔️ **The subtle art of not giving a f*ck**
+✔️ **The subtle art of not giving a f\*ck**

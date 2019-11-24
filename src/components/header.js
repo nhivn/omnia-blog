@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "gatsby"
-import { css, useColorMode, Styled } from "theme-ui"
-import Switch from "./switch"
-import Bio from "../components/bio"
-import sun from "../../content/assets/sun.png"
-import moon from "../../content/assets/moon.png"
+import React from "react";
+import { Link } from "gatsby";
+import { css, useColorMode, Styled } from "theme-ui";
+import Switch from "./switch";
+import Bio from "./bio";
+import sun from "../../content/assets/sun.png";
+import moon from "../../content/assets/moon.png";
 
-const rootPath = `${__PATH_PREFIX__}/`
+const rootPath = `${__PATH_PREFIX__}/`;
 
 const Title = ({ children, location }) => {
   if (location.pathname === rootPath) {
@@ -14,45 +14,44 @@ const Title = ({ children, location }) => {
       <Styled.h1
         css={css({
           my: 0,
-          fontSize: 5,
+          fontSize: 5
         })}
       >
         <Styled.a
           as={Link}
           css={{
-            color: `inherit`,
-            boxShadow: `none`,
-            textDecoration: `none`,
+            color: "inherit",
+            boxShadow: "none",
+            textDecoration: "none"
           }}
-          to={`/`}
+          to="/"
         >
           {children}
         </Styled.a>
       </Styled.h1>
-    )
-  } else {
-    return (
-      <Styled.h3
-        as="p"
-        css={css({
-          my: 0,
-        })}
-      >
-        <Styled.a
-          as={Link}
-          css={css({
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `primary`,
-          })}
-          to={`/`}
-        >
-          {children}
-        </Styled.a>
-      </Styled.h3>
-    )
+    );
   }
-}
+  return (
+    <Styled.h3
+      as="p"
+      css={css({
+        my: 0
+      })}
+    >
+      <Styled.a
+        as={Link}
+        css={css({
+          boxShadow: "none",
+          textDecoration: "none",
+          color: "primary"
+        })}
+        to="/"
+      >
+        {children}
+      </Styled.a>
+    </Styled.h3>
+  );
+};
 
 const checkedIcon = (
   <img
@@ -62,11 +61,11 @@ const checkedIcon = (
     height="16"
     role="presentation"
     css={{
-      pointerEvents: `none`,
-      margin: 4,
+      pointerEvents: "none",
+      margin: 4
     }}
   />
-)
+);
 
 const uncheckedIcon = (
   <img
@@ -76,35 +75,35 @@ const uncheckedIcon = (
     height="16"
     role="presentation"
     css={{
-      pointerEvents: `none`,
-      margin: 4,
+      pointerEvents: "none",
+      margin: 4
     }}
   />
-)
+);
 
 export default ({ children, title, ...props }) => {
-  const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode === "dark";
   const toggleColorMode = e => {
-    setColorMode(isDark ? `light` : `dark`)
-  }
+    setColorMode(isDark ? "light" : "dark");
+  };
 
   return (
     <header>
       <div
         css={css({
-          maxWidth: `container`,
-          mx: `auto`,
+          maxWidth: "container",
+          mx: "auto",
           px: 3,
-          pt: 4,
+          pt: 4
         })}
       >
         <div
           css={css({
-            display: `flex`,
-            justifyContent: `space-between`,
-            alignItems: `baseline`,
-            mb: 3,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            mb: 3
           })}
         >
           <Title {...props}>{title}</Title>
@@ -112,7 +111,7 @@ export default ({ children, title, ...props }) => {
           <Switch
             aria-label="Toggle dark mode"
             css={css({
-              bg: `black`,
+              bg: "highlight"
             })}
             checkedIcon={checkedIcon}
             uncheckedIcon={uncheckedIcon}
@@ -123,5 +122,5 @@ export default ({ children, title, ...props }) => {
         {props.location.pathname === rootPath && <Bio />}
       </div>
     </header>
-  )
-}
+  );
+};

@@ -46,11 +46,11 @@ module.exports = {
       resolve: `gatsby-theme-blog`,
       options: {
         // basePath defaults to `/`
-        basePath: `/blog`,
-      },
-    },
-  ],
-}
+        basePath: `/blog`
+      }
+    }
+  ]
+};
 ```
 
 ### Additional configuration
@@ -71,13 +71,13 @@ module.exports = {
     social: [
       {
         name: `Twitter`,
-        url: `https://twitter.com/gatsbyjs`,
+        url: `https://twitter.com/gatsbyjs`
       },
       {
         name: `GitHub`,
-        url: `https://github.com/gatsbyjs`,
-      },
-    ],
-  },
-}
+        url: `https://github.com/gatsbyjs`
+      }
+    ]
+  }
+};
 ```
