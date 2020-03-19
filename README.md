@@ -1,4 +1,4 @@
-# Omnia blog
+# Omnia blog [![Netlify Status](https://api.netlify.com/api/v1/badges/331d7f12-0b80-41e9-92a6-25de649d36ad/deploy-status)](https://app.netlify.com/sites/unruffled-spence-4001a5/deploys)
 
 My blog revamped with a new look. 
 
