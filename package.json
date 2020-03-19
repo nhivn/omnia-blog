@@ -19,7 +19,7 @@
     "@babel/core": "7.6.2",
     "@emotion/core": "^10.0.22",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "@mdx-js/react": "^1.5.7",
     "@theme-ui/components": "^0.2.49",
