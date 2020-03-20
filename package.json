@@ -24,7 +24,7 @@
     "@mdx-js/react": "^1.5.7",
     "@theme-ui/components": "^0.2.49",
     "@theme-ui/presets": "^0.2.44",
-    "@theme-ui/prism": "^0.2.46",
+    "@theme-ui/prism": "^0.3.0",
     "@theme-ui/typography": "^0.2.46",
     "deepmerge": "^4.2.2",
     "gatsby-image": "^2.2.31",
