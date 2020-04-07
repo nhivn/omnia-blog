@@ -33,7 +33,7 @@
     "gatsby-plugin-manifest": "^2.2.48",
     "gatsby-plugin-react-helmet": "^3.1.14",
     "gatsby-plugin-theme-ui": "^0.2.43",
-    "gatsby-plugin-twitter": "^2.1.13",
+    "gatsby-plugin-twitter": "^2.2.2",
     "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-source-filesystem": "^2.1.38",
     "gatsby-theme-blog-core": "^1.0.28",
