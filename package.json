@@ -36,7 +36,7 @@
     "gatsby-plugin-twitter": "^2.1.13",
     "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-source-filesystem": "^2.1.38",
-    "gatsby-theme-blog-core": "^1.0.28",
+    "gatsby-theme-blog-core": "^1.4.11",
     "gatsby-transformer-remark": "^2.6.37",
     "mdx-utils": "0.2.0",
     "polished": "^3.4.2",
