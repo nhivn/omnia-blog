@@ -777,10 +777,10 @@
     "@babel/plugin-transform-react-jsx-self" "^7.7.4"
     "@babel/plugin-transform-react-jsx-source" "^7.7.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
-  integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
+  version "7.10.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.3.tgz#670d002655a7c366540c67f6fd3342cd09500364"
+  integrity sha512-RzGO0RLSdokm9Ipe/YD+7ww8X2Ro79qiXZF3HU9ljrM+qnJmH1Vqth+hbiQZy761LnMJTMitHDuKVYTk3k4dLw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -6003,12 +6003,12 @@ gatsby-plugin-theme-ui@^0.2.43:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-theme-ui/-/gatsby-plugin-theme-ui-0.2.43.tgz#a2baa2bdba1bd923edeb63f1ebdf48c36b5c63ef"
   integrity sha512-rBQ5vlTSeuUuv929s5k6VUit7k/VXqZOFxd5FlMyR9DCo87zqEJhQ0sobkLrfhAiAo80TUyQEEA0GbLZtrb6pA==
 
-gatsby-plugin-twitter@^2.1.13:
-  version "2.1.14"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.1.14.tgz#74a1f77b56c741d58e614efd49b6242d56fa474c"
-  integrity sha512-sOiCPB83JN3bQBjMEWnWhfNJrH0xY2y32i8ulmQriyAHOyIwr9TRO3c4zWSB4Y6o0ACxCsNfkQltYJEKol5+gw==
+gatsby-plugin-twitter@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.3.5.tgz#37699b2cfb280416df4bb04902d4cebba5829a5f"
+  integrity sha512-8EXkc/SFr6GT+/WRi3TxTSMNTl7bQ/fvGDTyIgZuTROoMd6hZ+m4bXcnhl8mFGN0gZLJ8ggHO161dNhQ+QKmvQ==
   dependencies:
-    "@babel/runtime" "^7.7.2"
+    "@babel/runtime" "^7.10.2"
 
 gatsby-react-router-scroll@^2.1.16:
   version "2.1.16"
