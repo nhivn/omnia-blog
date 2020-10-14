@@ -37,7 +37,7 @@
     "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-source-filesystem": "^2.3.31",
     "gatsby-theme-blog-core": "^2.0.2",
-    "gatsby-transformer-remark": "^2.8.36",
+    "gatsby-transformer-remark": "^2.8.39",
     "mdx-utils": "0.2.0",
     "polished": "^3.4.2",
     "react-helmet": "^6.1.0",
