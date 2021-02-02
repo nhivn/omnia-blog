@@ -29,7 +29,7 @@
     "deepmerge": "^4.2.2",
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-emotion": "^4.3.12",
-    "gatsby-plugin-feed": "^2.3.20",
+    "gatsby-plugin-feed": "^2.13.0",
     "gatsby-plugin-manifest": "^2.4.32",
     "gatsby-plugin-react-helmet": "^3.3.12",
     "gatsby-plugin-theme-ui": "^0.3.0",
