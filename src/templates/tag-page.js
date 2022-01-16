@@ -60,9 +60,9 @@ const TagPage = props => {
                 <small>
                   <Styled.strong css={css({ color: "secondary" })}>
                     {node.frontmatter.date}&nbsp;&nbsp;
-                    {readTimeData.type === 'coffee' && <span role="img">☕️</span>}
-                    {readTimeData.type === 'lunch' && <span role="img">🍱</span>}
-                    <Styled.span css={css({ paddingLeft: '8px' })}>{readTimeData.minutes} minutes</Styled.span>
+                    {readTimeData.type === 'coffee' && <span role="img" aria-label="coffee">☕️</span>}
+                    {readTimeData.type === 'lunch' && <span role="img" aria-label="lunch">🍱</span>}
+                    <Styled.strong css={css({ pl: 1 })}>{readTimeData.minutes} minutes</Styled.strong>
                   </Styled.strong>
                 </small>
 
