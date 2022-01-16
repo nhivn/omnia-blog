@@ -36,6 +36,8 @@ const TagPage = props => {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           const keywords = node.keywords || [];
+          const readTimeData = formatReadingTime(node.fields.readingTime.minutes)
+          
           return (
             <Fragment key={node.fields.slug}>
               <SEO title="Home" keywords={keywords} />
@@ -58,7 +60,9 @@ const TagPage = props => {
                 <small>
                   <Styled.strong css={css({ color: "secondary" })}>
                     {node.frontmatter.date}&nbsp;&nbsp;
-                    {formatReadingTime(node.fields.readingTime.minutes)}
+                    {readTimeData.type === 'coffee' && <span role="img">☕️</span>}
+                    {readTimeData.type === 'lunch' && <span role="img">🍱</span>}
+                    <Styled.span css={css({ paddingLeft: '8px' })}>{readTimeData.minutes} minutes</Styled.span>
                   </Styled.strong>
                 </small>
 

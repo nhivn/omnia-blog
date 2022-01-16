@@ -26,6 +26,7 @@ const Post = props => {
     location
   } = props;
   const post = blogPost;
+  const readTimeData = formatReadingTime(minutes)
 
   return (
     <Layout location={location} title={title}>
@@ -41,7 +42,10 @@ const Post = props => {
         >
           <small>
             <Styled.strong css={css({ color: "secondary" })}>
-              {post.date}&nbsp;&nbsp;{formatReadingTime(minutes)}
+              {post.date}&nbsp;&nbsp;
+              {readTimeData.type === 'coffee' && <span role="img" aria-label="coffee">☕️</span>}
+              {readTimeData.type === 'lunch' && <span role="img" aria-label="lunch">🍱</span>}
+              <Styled.strong css={css({ paddingLeft: '8px' })}>{readTimeData.minutes} minutes</Styled.strong>
             </Styled.strong>
           </small>
         </Styled.p>

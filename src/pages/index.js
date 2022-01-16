@@ -19,6 +19,8 @@ const Posts = props => {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           const keywords = node.keywords || [];
+          const readTimeData = formatReadingTime(node.fields.readingTime.minutes)
+
           return (
             <Fragment key={node.fields.slug}>
               <SEO title="Home" keywords={keywords} />
@@ -41,7 +43,9 @@ const Posts = props => {
                 <small>
                   <Styled.strong css={css({ color: "secondary" })}>
                     {node.frontmatter.date}&nbsp;&nbsp;
-                    {formatReadingTime(node.fields.readingTime.minutes)}
+                    {readTimeData.type === 'coffee' && <span>☕️</span>}
+                    {readTimeData.type === 'lunch' && <span>🍱</span>}
+                    <Styled.strong css={css({ paddingLeft: '8px' })}>{readTimeData.minutes} minutes</Styled.strong>
                   </Styled.strong>
                 </small>
 
