@@ -1,56 +1,39 @@
 {
   "name": "omnia-blog",
-  "version": "1.1.17",
-  "description": "",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nhivn/omnia-blo.git"
-  },
+  "type": "module",
+  "version": "2.0.0",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@babel/core": "7.11.6",
-    "@emotion/core": "^10.0.22",
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-brands-svg-icons": "^5.12.1",
-    "@fortawesome/react-fontawesome": "^0.1.7",
-    "@mdx-js/react": "^1.5.7",
-    "@theme-ui/components": "^0.3.1",
-    "@theme-ui/presets": "^0.3.0",
-    "@theme-ui/prism": "^0.3.0",
-    "@theme-ui/typography": "^0.3.0",
-    "deepmerge": "^4.2.2",
-    "gatsby-image": "^2.2.31",
-    "gatsby-plugin-emotion": "^4.3.12",
-    "gatsby-plugin-feed": "^2.3.20",
-    "gatsby-plugin-manifest": "^2.4.32",
-    "gatsby-plugin-react-helmet": "^3.3.12",
-    "gatsby-plugin-theme-ui": "^0.3.0",
-    "gatsby-plugin-twitter": "^2.3.12",
-    "gatsby-remark-reading-time": "^1.0.1",
-    "gatsby-source-filesystem": "^2.3.31",
-    "gatsby-theme-blog-core": "^2.0.2",
-    "gatsby-transformer-remark": "^2.8.36",
-    "mdx-utils": "0.2.0",
-    "polished": "^3.4.2",
-    "react-helmet": "^6.1.0",
-    "react-switch": "^5.0.1",
-    "theme-ui": "^0.3.1",
-    "typeface-ibm-plex-sans": "^0.0.75",
-    "typeface-paytone-one": "^0.0.72",
-    "typography-theme-fairy-gates": "^0.16.19"
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/node": "^9.1.0",
+    "@astrojs/react": "^4.2.0",
+    "@astrojs/tailwind": "^6.0.0",
+    "@fontsource/rethink-sans": "^5.2.8",
+    "@fontsource/space-mono": "^5.2.9",
+    "astro": "^5.4.0",
+    "lucide-react": "^0.474.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
-    "gatsby": "^2.24.66",
-    "prettier": "^2.1.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prettier": "^3.5.0",
+    "typescript": "^5.7.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }

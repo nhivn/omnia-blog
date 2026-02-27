@@ -1,0 +1,23 @@
+---
+interface Props {
+  tag: string;
+  color?: "primary" | "secondary";
+}
+
+const { tag, color = "primary" } = Astro.props;
+
+const colorClasses = {
+  primary: "text-primary border-primary/30 hover:bg-primary/5 dark:text-primary-300 dark:border-primary-300/30 dark:hover:bg-primary-300/5",
+  secondary: "text-secondary border-secondary/30 hover:bg-secondary/5 dark:text-secondary-300 dark:border-secondary-300/30 dark:hover:bg-secondary-300/5",
+};
+---
+
+<a
+  href={`/tags/${tag}/`}
+  class:list={[
+    "inline-block text-xs font-normal border rounded-full px-2.5 py-0.5 mr-1.5 mb-1 no-underline transition-colors",
+    colorClasses[color],
+  ]}
+>
+  #{tag}
+</a>

@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+import SocialFooter from "../../components/SocialFooter.astro";
+
+const { tag } = Astro.params;
+if (!tag) return Astro.redirect("/404");
+
+const posts = (await getCollection("posts", ({ data }) => data.published && data.tags.includes(tag)))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+if (posts.length === 0) {
+  return Astro.redirect("/404");
+}
+---
+
+<BaseLayout title={`#${tag}`}>
+  <main>
+    <h3 class="text-xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-6 leading-relaxed">
+      Showing {posts.length} post{posts.length > 1 ? "s" : ""} with{" "}
+      <span class="inline-block bg-secondary text-white px-3 py-1 rounded-full text-lg">
+        #{tag}
+      </span>
+    </h3>
+    {posts.map((post) => (
+      <PostCard
+        slug={post.id}
+        title={post.data.title}
+        date={post.data.date}
+        excerpt={post.data.excerpt}
+        tags={post.data.tags}
+        body={post.body}
+      />
+    ))}
+  </main>
+  <SocialFooter />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import ThemeToggle from "./ThemeToggle";
+import Bio from "./Bio.astro";
+import { siteConfig } from "../lib/config";
+
+interface Props {
+  isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
+---
+
+<header>
+  <div class="max-w-content mx-auto px-5 pt-8">
+    <div class="flex justify-between items-baseline mb-6">
+      {isHome ? (
+        <h1 class="font-heading text-3xl font-normal m-0">
+          <a href="/" class="text-inherit no-underline hover:no-underline dark:text-gray-100">
+            {siteConfig.title}
+          </a>
+        </h1>
+      ) : (
+        <p class="font-heading text-xl font-normal m-0">
+          <a href="/" class="text-primary no-underline hover:no-underline dark:text-primary-300">
+            {siteConfig.title}
+          </a>
+        </p>
+      )}
+      <ThemeToggle client:load />
+    </div>
+    {isHome && <Bio />}
+  </div>
+</header>

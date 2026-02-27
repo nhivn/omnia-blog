@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostTag from "../components/PostTag.astro";
+import PostFooter from "../components/PostFooter.astro";
+import { formatDate, getReadingTime } from "../lib/utils";
+
+const { slug } = Astro.params;
+
+const allPosts = (await getCollection("posts", ({ data }) => data.published))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const postIndex = allPosts.findIndex((p) => p.id === slug);
+if (postIndex === -1) {
+  return Astro.redirect("/404");
+}
+
+const post = allPosts[postIndex];
+const previous = postIndex < allPosts.length - 1 ? allPosts[postIndex + 1] : null;
+const next = postIndex > 0 ? allPosts[postIndex - 1] : null;
+
+const { Content } = await render(post);
+const readTime = post.body ? getReadingTime(post.body) : { minutes: 1, type: "coffee" as const, count: 1 };
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
+  <main>
+    <h1 class="text-3xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-1">
+      {post.data.title}
+    </h1>
+    <p class="text-sm mt-0 mb-6">
+      <span class="text-secondary font-semibold dark:text-secondary-300">
+        {formatDate(post.data.date)}&nbsp;&nbsp;
+        {readTime.type === "coffee" && <span role="img" aria-label="coffee">☕️</span>}
+        {readTime.type === "lunch" && <span role="img" aria-label="lunch">🍱</span>}
+        <span class="pl-1 font-semibold">{readTime.minutes} minutes</span>
+      </span>
+    </p>
+    <article class="prose">
+      <Content />
+    </article>
+    <div class="mt-6">
+      <em class="text-gray-700 dark:text-gray-300">Tagged with:</em>{" "}
+      {post.data.tags.map((tag) => <PostTag tag={tag} />)}
+    </div>
+  </main>
+  <PostFooter
+    previous={previous ? { slug: previous.id, title: previous.data.title } : null}
+    next={next ? { slug: next.id, title: next.data.title } : null}
+  />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import { siteConfig } from "../lib/config";
+---
+
+<div class="flex items-center mb-8">
+  <img
+    src="/avatar.png"
+    alt={siteConfig.author}
+    width="60"
+    height="60"
+    class="rounded-full mr-3 shrink-0"
+  />
+  <div class="text-gray-700 dark:text-gray-300">
+    <a href="https://nhivn.dev/" class="text-primary font-normal dark:text-primary-300 no-underline hover:underline">
+      {siteConfig.author}
+    </a>'s personal blog.
+    <br />
+    Powered by bubble tea and coffee.
+  </div>
+</div>

@@ -1,0 +1,37 @@
+---
+import PostTag from "./PostTag.astro";
+import { formatDate, getReadingTime } from "../lib/utils";
+
+interface Props {
+  slug: string;
+  title: string;
+  date: Date;
+  excerpt: string;
+  tags: string[];
+  body?: string;
+}
+
+const { slug, title, date, excerpt, tags, body } = Astro.props;
+const readTime = body ? getReadingTime(body) : { minutes: 1, type: "coffee" as const, count: 1 };
+---
+
+<article class="mb-8">
+  <h2 class="text-xl font-heading font-bold mb-1">
+    <a
+      href={`/${slug}/`}
+      class="text-gray-900 dark:text-gray-100 no-underline hover:text-primary dark:hover:text-primary-300 transition-colors"
+    >
+      {title}
+    </a>
+  </h2>
+  <small class="text-secondary font-semibold dark:text-secondary-300">
+    {formatDate(date)}&nbsp;&nbsp;
+    {readTime.type === "coffee" && <span role="img" aria-label="coffee">☕️</span>}
+    {readTime.type === "lunch" && <span role="img" aria-label="lunch">🍱</span>}
+    <span class="pl-1 font-semibold">{readTime.minutes} minutes</span>
+  </small>
+  <div class="mt-2 mb-1">
+    <p class="text-gray-700 dark:text-gray-300 mb-2 leading-relaxed">{excerpt}</p>
+    {tags.map((tag) => <PostTag tag={tag} />)}
+  </div>
+</article>

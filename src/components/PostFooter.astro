@@ -1,0 +1,33 @@
+---
+import Bio from "./Bio.astro";
+
+interface Props {
+  previous?: { slug: string; title: string } | null;
+  next?: { slug: string; title: string } | null;
+}
+
+const { previous, next } = Astro.props;
+---
+
+<footer class="mt-10 pt-6">
+  <hr class="border-gray-200 dark:border-gray-700 mb-6" />
+  <Bio />
+  {(previous || next) && (
+    <ul class="flex flex-wrap justify-between list-none p-0 mt-6">
+      <li>
+        {previous && (
+          <a href={`/${previous.slug}/`} class="text-primary dark:text-primary-300 no-underline hover:underline">
+            ← {previous.title}
+          </a>
+        )}
+      </li>
+      <li>
+        {next && (
+          <a href={`/${next.slug}/`} class="text-primary dark:text-primary-300 no-underline hover:underline">
+            {next.title} →
+          </a>
+        )}
+      </li>
+    </ul>
+  )}
+</footer>
