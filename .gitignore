@@ -22,3 +22,6 @@ dist/
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Local Netlify folder
+.netlify
