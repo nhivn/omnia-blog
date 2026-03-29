@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify";
+import keystatic from "@keystatic/astro";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
@@ -28,6 +29,7 @@ export default defineConfig({
     mdx({ rehypePlugins }),
     react(),
     tailwind(),
+    keystatic(),
   ],
   markdown: {
     shikiConfig: {
