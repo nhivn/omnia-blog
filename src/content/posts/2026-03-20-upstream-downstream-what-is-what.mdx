@@ -4,6 +4,31 @@ excerpt: The concept that you hear about so much but it’s never the same or co
 date: 2026-03-20
 tags: []
 categories: []
-comments: false
-published: false
+comments: true
+published: true
 ---
+First and foremost, I don’t think there’s any right or wrong answer. There are just two answers and you need to clarify with everyone each time or go with the flow.
+
+If we think of the upstream and downstream concepts as a **river** and your service is a point somewhere.
+
+## What does the WATER represent?
+
+### Choice A: Response
+
+> Service A calls service B to get some data. Service A is downstream. Service B is upstream.
+
+This one is a popular one. Data flows from upstream to downstream. If you dig around on the world wide web, you’ll probably end up with this definition.
+
+### Choice B: Request
+
+> Service A calls to service B. The request flows from a to B. Service A is upstream. Service B is downstream.
+
+After searching on the Internet, I find this one more obscure but nevertheless something that, anecdotally, I find my peers think of first before choice A.
+
+
+
+## Verdict?
+
+if you are here because you’re confused like me when we switched between choices and B, just don’t use it. Don’t feel like you have to be nice and use a term that everyone keeps interchangeably using and **use a term that is clear.**
+
+However, if you are hell bent to find some resemblance of consistency like me, the answer is both A and B. If service A needs data from service B to do what it’s doing, the answer is choice A. If service A does not care for the response from service B but rather kicking off a chain of workflows, the answer is choice B.
