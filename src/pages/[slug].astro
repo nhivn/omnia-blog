@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PostTag from "../components/PostTag.astro";
 import PostFooter from "../components/PostFooter.astro";
 import { formatDate, getReadingTime } from "../lib/utils";
+import { siteConfig } from "../lib/config";
 
 const { slug } = Astro.params;
 
@@ -23,7 +24,14 @@ const { Content } = await render(post);
 const readTime = post.body ? getReadingTime(post.body) : { minutes: 1, type: "coffee" as const, count: 1 };
 ---
 
-<BaseLayout title={post.data.title} description={post.data.excerpt}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  ogType="article"
+  publishedTime={post.data.date}
+  tags={post.data.tags}
+  author={siteConfig.author}
+>
   <main>
     <h1 class="text-3xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-1">
       {post.data.title}
