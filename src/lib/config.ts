@@ -1,5 +1,5 @@
 export const siteConfig = {
-  title: "Omnia",
+  title: "developuh",
   author: "Nhi Nguyen",
   description: "Nhi Nguyen's personal blog about software development.",
   siteUrl: "https://blog.nhivn.dev/",

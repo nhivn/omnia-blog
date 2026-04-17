@@ -9,7 +9,7 @@ export default config({
     },
   },
   ui: {
-    brand: { name: "Omnia" },
+    brand: { name: "developuh" },
   },
   collections: {
     posts: collection({
