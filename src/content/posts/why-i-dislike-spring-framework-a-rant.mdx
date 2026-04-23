@@ -1,0 +1,66 @@
+---
+title: Why I dislike Spring framework — a rant
+excerpt: My opinionated piece on the magic of the beloved Spring framework
+date: 2026-04-22
+tags: []
+categories: []
+comments: false
+published: false
+---
+## SOLID what?
+
+### The Magic Problem
+
+* Dependencies just *appear* via `@Autowired` — you never manually wire anything, so you never see Dependency Inversion actually happening
+* Component scanning and auto-configuration mean the framework makes decisions for you, invisibly
+* You learn *that* it works, never *why* it works
+
+### Single Responsibility Gets Blurry
+
+* Annotations like `@Transactional`, `@Validated`, `@Slf4j` silently bolt on extra responsibilities on a class so easily
+* A class looks clean on the surface but Spring is quietly handling transactions, validation, and logging behind the scenes
+* Violations accumulate without any obvious warning sign
+
+### Open/Closed Gets Ignored
+
+* It’s so easy to inject another dependency that `UserService` just grows — 5 methods becomes 20
+* Nothing in Spring pushes back when a class takes on too many reasons to change
+
+### Dependency Inversion Becomes Invisible
+
+* Spring inverts dependencies for you automatically — so you never feel the pain of *not* doing it
+* Most devs can’t explain why DI matters because they’ve never had to do it manually
+
+### Interface Segregation Feels Like Bureaucracy
+
+* Java already forces you to write interfaces constantly
+* When you write them out of habit or language necessity (not design intent), the principle feels pointless
+
+### Liskov Gets Quietly Broken
+
+* Java’s `extends`-first culture combined with Spring base classes encourages deep inheritance
+* Substitutability breaks silently and only surfaces at runtime
+
+## And, let’s not forget OOP
+
+### Encapsulation Breaks Down
+
+* `@Autowired` on private fields means Spring bypasses constructors entirely — dependencies are injected via reflection, not proper object construction
+* Objects don’t fully control their own state or initialisation
+* Field injection makes it impossible to enforce required dependencies at compile time
+
+### Abstraction Gets Muddied
+
+* Spring beans are often designed around the framework’s lifecycle, not around meaningful domain abstractions
+* Classes end up shaped by *what Spring needs*, not *what the domain requires*
+
+### Polymorphism Is Underused
+
+* Because Spring wires everything automatically, there’s little pressure to design proper polymorphic interfaces
+* Swapping implementations feels like a config change, not a design decision — so the skill never develops
+
+### Objects Lose Identity
+
+* In classic OOP, an object owns its behaviour and state
+* Spring beans become *procedure holders* — stateless, passive, just a place to hang annotated methods
+* This is closer to procedural programming than true OOP
